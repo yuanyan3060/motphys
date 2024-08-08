@@ -159,7 +159,6 @@ impl RigidBody {
         self.position += offset;
     }
 
-
     pub fn reset_force(&mut self) {
         self.force = Vec3::ZERO;
         self.torque = Vec3::ZERO;

@@ -38,7 +38,6 @@ pub fn physics_engine_update(
     }
 }
 
-
 pub struct PhysicsDebugPlugin;
 
 impl Plugin for PhysicsDebugPlugin {

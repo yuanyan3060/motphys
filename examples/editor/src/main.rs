@@ -162,7 +162,10 @@ fn link(
         .compute_matrix()
         .inverse()
         .transform_point3(world_pos);
-    let ball = match link_query.iter_mut().find(|(_, _, x)| x.target_link.is_none()) {
+    let ball = match link_query
+        .iter_mut()
+        .find(|(_, _, x)| x.target_link.is_none())
+    {
         Some((other_entity, other_pos, mut other_link)) => {
             let ball = commands
                 .spawn((
@@ -259,13 +262,17 @@ fn remove(
     commands.entity(pick).despawn();
     if let Ok((_, link)) = link_query.get(pick) {
         // 如果删除的是节点 那么同时删除成对的节点
-        if let Some(x) = link.target_link { commands.entity(x).despawn() }
+        if let Some(x) = link.target_link {
+            commands.entity(x).despawn()
+        }
     }
     if let Ok((cube, _)) = cube_query.get(pick) {
         // 如果删除的是方块 那么删除与之相连的所有节点 和成对的节点
         for (entity, link) in link_query.iter() {
             if link.cube == cube || link.target_cube == Some(cube) {
-                if let Some(mut x) = commands.get_entity(entity) { x.despawn() }
+                if let Some(mut x) = commands.get_entity(entity) {
+                    x.despawn()
+                }
             }
         }
     }

@@ -415,5 +415,5 @@ impl Mul<Scalar> for Quaternion {
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub struct Plane {
     pub normal: Vec3,
-    pub point: Vec3
+    pub point: Vec3,
 }

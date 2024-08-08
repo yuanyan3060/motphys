@@ -1,4 +1,7 @@
-use crate::{math::{Scalar, Vec3}, RigidBody};
+use crate::{
+    math::{Scalar, Vec3},
+    RigidBody,
+};
 use wasm_bindgen::prelude::*;
 
 #[cfg_attr(feature = "use_bevy", derive(bevy::prelude::Component))]
@@ -22,7 +25,10 @@ impl<Id: Eq> DistanceJoint<Id> {
     }
 
     pub fn with_length(self, length: Scalar) -> Self {
-        Self { rest_length: length, ..self }
+        Self {
+            rest_length: length,
+            ..self
+        }
     }
 
     pub fn with_local_pos1(self, local_pos1: Vec3) -> Self {
@@ -44,7 +50,7 @@ impl<Id: Eq> DistanceJoint<Id> {
         let delta_direction = delta / delta_length;
         let joint_force_magnitude = 100.0 * (delta_length - self.rest_length);
         let joint_force = delta_direction * joint_force_magnitude;
-        
+
         body1.apply_force(joint_force, world_pos1);
         body2.apply_force(-joint_force, world_pos2);
 
@@ -78,7 +84,10 @@ impl DistanceJointThreejs {
     }
 
     pub fn with_length(self, length: Scalar) -> Self {
-        Self { rest_length: length, ..self }
+        Self {
+            rest_length: length,
+            ..self
+        }
     }
 
     pub fn with_local_pos1(self, local_pos1: Vec3) -> Self {
@@ -97,7 +106,7 @@ impl DistanceJointThreejs {
         let delta_direction = delta / delta_length;
         let joint_force_magnitude = 100.0 * (delta_length - self.rest_length);
         let joint_force = delta_direction * joint_force_magnitude;
-        
+
         body1.apply_force(joint_force, world_pos1);
         body2.apply_force(-joint_force, world_pos2);
 

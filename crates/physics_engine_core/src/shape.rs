@@ -6,8 +6,7 @@ pub trait Shape {
     fn get_inertia_tensor(&self, mass: Scalar) -> Matrix3x3;
 }
 
-#[derive(Debug, Clone, Copy)]
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub enum Shapes {
     Boxes(Boxes), // 暂时只实现长方体
 }
@@ -20,8 +19,7 @@ impl Shape for Shapes {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 #[wasm_bindgen]
 pub struct Boxes {
     /// 沿x轴方向长度

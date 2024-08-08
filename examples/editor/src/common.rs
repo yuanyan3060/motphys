@@ -6,18 +6,18 @@ use bevy::prelude::{Entity, Resource, Transform};
 pub enum Picked {
     None,
     Cuboid(Entity),
-    Joint(Entity)
+    Joint(Entity),
 }
 
 #[derive(Resource, Default)]
 pub struct TransformStore {
-    pub inner: HashMap<Entity, Transform>
+    pub inner: HashMap<Entity, Transform>,
 }
 
 #[derive(Resource, PartialEq, Eq)]
 pub enum GameState {
     Editor,
-    Play
+    Play,
 }
 
 impl GameState {

@@ -11,11 +11,13 @@ pub struct Collision {
 /// 碰撞检测 暂时只实现长方体的
 pub fn collision_check(body1: &RigidBody, body2: &RigidBody) -> Option<Collision> {
     #[allow(irrefutable_let_patterns)]
-    let Shapes::Boxes(box1) = body1.shape else {
+    let Shapes::Boxes(box1) = body1.shape
+    else {
         return None;
     };
     #[allow(irrefutable_let_patterns)]
-    let Shapes::Boxes(box2) = body2.shape else {
+    let Shapes::Boxes(box2) = body2.shape
+    else {
         return None;
     };
     let box1_vertex = get_box_vertex(box1, body1.position, body1.quaternion);
@@ -36,10 +38,7 @@ pub fn collision_check(body1: &RigidBody, body2: &RigidBody) -> Option<Collision
             .map(|last| overlap < last.overlap)
             .unwrap_or(true);
         if need_update {
-            ret = Some(Collision {
-                face,
-                overlap,
-            })
+            ret = Some(Collision { face, overlap })
         }
     }
     ret

@@ -4,7 +4,7 @@ pub fn engine_vec3_2_bevy(value: physics_engine_core::math::Vec3) -> bevy::math:
     bevy::math::Vec3 {
         x: value.x,
         y: value.y,
-        z: value.z
+        z: value.z,
     }
 }
 
@@ -17,11 +17,11 @@ pub fn bevy_vec3_2_engine(value: bevy::math::Vec3) -> physics_engine_core::math:
     physics_engine_core::math::Vec3 {
         x: value.x,
         y: value.y,
-        z: value.z
+        z: value.z,
     }
 }
 
-pub fn bevy_quat_2_engine(value: bevy::math::Quat) ->  physics_engine_core::math::Quaternion{
+pub fn bevy_quat_2_engine(value: bevy::math::Quat) -> physics_engine_core::math::Quaternion {
     let [x, y, z, w] = value.to_array();
     Quaternion::new(w, x, y, z)
 }

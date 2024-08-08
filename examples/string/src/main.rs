@@ -39,7 +39,7 @@ fn setup(
                 transform: Transform::from_xyz(-0.2, 2.0, 0.0),
                 ..default()
             },
-            physics_engine_bevy::RigidBody::new(Boxes::cube(0.5), 1.0)
+            physics_engine_bevy::RigidBody::new(Boxes::cube(0.05), 1.0)
                 .unwrap()
                 .with_position(physics_engine_bevy::math::Vec3::new(-0.2, 2.0, 0.0))
                 .with_type(physics_engine_bevy::RigidBodyType::Static),
@@ -64,22 +64,22 @@ fn setup(
             .with_local_pos2(physics_engine_bevy::math::Vec3::new(0.2, 0.2, 0.2)),
     );
     for i in 0..3 {
-        let x = 0.1 * (i + 1) as f32;
+        let x = 0.01 * (i + 1) as f32;
+        let y = 2.0 - 0.4 * (i + 1) as f32;
         let next_dynamic_cube = commands
             .spawn((
                 PbrBundle {
                     mesh: cube_mesh.clone(),
                     material: cube_material.clone(),
-                    transform: Transform::from_xyz(x, 2.0, 0.2),
+                    transform: Transform::from_xyz(x, y, 0.2),
                     ..default()
                 },
                 physics_engine_bevy::RigidBody::new(Boxes::cube(0.2), 1.0)
                     .unwrap()
-                    .with_position(physics_engine_bevy::math::Vec3::new(x, 2.0, 0.2)),
+                    .with_position(physics_engine_bevy::math::Vec3::new(x, y, 0.2)),
             ))
             .id();
-        commands
-        .spawn(
+        commands.spawn(
             physics_engine_bevy::DistanceJoint::new(dynamic_cube, next_dynamic_cube)
                 .with_length(0.4)
                 .with_local_pos1(physics_engine_bevy::math::Vec3::new(-0.2, -0.2, -0.2))

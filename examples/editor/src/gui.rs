@@ -100,7 +100,7 @@ pub fn ui_loop(
         });
 }
 
-#[allow(clippy::type_complexity)] 
+#[allow(clippy::type_complexity)]
 fn on_none(
     mut commands: Commands,
     ui: &mut egui::Ui,

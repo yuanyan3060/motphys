@@ -162,7 +162,7 @@ fn on_none(
                     transform_store.inner.insert(cube2_entity, *cube2_transform);
                 });
         };
-        if ui.button("restart").clicked() {
+        if ui.button("restore").clicked() {
             *state = GameState::Editor;
             param_set
                 .p0()

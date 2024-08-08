@@ -1,0 +1,9 @@
+[package]
+name = "physics_engine_bevy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = { version = "0.14.0"}
+physics_engine_core = {path = "../physics_engine_core", features = ["use_bevy"]}
+bevy_prototype_lyon = "0.12.0"

@@ -1,0 +1,9 @@
+[package]
+name = "basic"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+physics_engine_bevy = {path = "../../crates/physics_engine_bevy"}
+bevy = { version = "0.14.0", features = ["bevy_dev_tools"] }
+bevy_prototype_lyon = "0.12.0"

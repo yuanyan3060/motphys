@@ -1,0 +1,17 @@
+{
+  "name": "physics_engine_core",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "physics_engine_core_bg.wasm",
+    "physics_engine_core.js",
+    "physics_engine_core_bg.js",
+    "physics_engine_core.d.ts"
+  ],
+  "main": "physics_engine_core.js",
+  "types": "physics_engine_core.d.ts",
+  "sideEffects": [
+    "./physics_engine_core.js",
+    "./snippets/*"
+  ]
+}
